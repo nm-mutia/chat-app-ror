@@ -1,5 +1,5 @@
-import { environment } from "@rails/webpacker"
-import { ProvidePlugin } from "webpack"
+const { environment } =  require( "@rails/webpacker" )
+const { ProvidePlugin } = require( "webpack" )
 
 environment.plugins.prepend("Provide",
     new ProvidePlugin({

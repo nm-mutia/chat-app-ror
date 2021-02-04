@@ -1,0 +1,12 @@
+<h1>Rooms Index</h1>
+
+<ul>
+    <% @rooms.each do |room|%>
+        <li> 
+            <%= link_to room.name, room_path(room) %> 
+            <%= link_to "delete", room_path(room), method: :delete, data: { confirm: "Yakin?" } %>
+        </li>
+    <% end %>
+</ul>
+
+<%= link_to "Add Room", new_room_path %>
