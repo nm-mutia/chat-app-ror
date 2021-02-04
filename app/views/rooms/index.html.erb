@@ -1,12 +1,21 @@
-<h1>Rooms Index</h1>
+<%= render "partials/navbar" %>
 
-<ul>
-    <% @rooms.each do |room|%>
-        <li> 
-            <%= link_to room.name, room_path(room) %> 
-            <%= link_to "delete", room_path(room), method: :delete, data: { confirm: "Yakin?" } %>
-        </li>
-    <% end %>
-</ul>
+<br>
 
-<%= link_to "Add Room", new_room_path %>
+<div class="container">
+  <% if flash[:success] %>
+    <% render "partials/alert" %>
+  <% end %>
+
+  <div class="card">
+    <h3 class="card-header card-new">
+      Rooms
+    </h3>
+    <%= render "partials/rooms" %>
+    <div class="card-footer">
+      Want to create a room?
+      <%= link_to "Create Room", new_room_path, class: "btn btn-outline-success" %>
+    </div>
+  </div>
+
+</div>

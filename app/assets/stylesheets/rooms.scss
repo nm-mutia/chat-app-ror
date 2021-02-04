@@ -1,3 +1,37 @@
 // Place all the styles related to the Rooms controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+// navbar
+.navbar-bg{
+  background-color: #00303f;
+}
+.navbar-brand{
+  color: #cae4db;
+  padding: 20px 0;
+}
+.navbar-brand:hover{
+  color: #f5f4f4;
+}
+
+// new
+.card-new{
+  background-color: #00303f;
+  color: #cae4db;
+}
+
+// index - rooms list
+.room-item{
+  color: #cdac81;
+}
+.room-item:hover{
+  color: #00303f;
+}
+
+.rooms-header{
+  color: #cae4db;
+  text-decoration: none;
+}
+.rooms-header:hover{
+  color: #cdac81;
+}

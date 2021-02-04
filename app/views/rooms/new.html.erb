@@ -1,6 +1,23 @@
-<h1>Add New Room</h1>
+<%= render "partials/navbar" %>
 
-<%= form_with model: @room do |form| %>
-    <%= form.text_field :name %>
-    <%= form.submit %>
-<% end %>
+<br>
+
+<div class="container">
+  <div class="card">
+    <h3 class="card-header card-new">
+        Create Your Room
+    </h3>
+    <div class="card-body">
+        <%= form_with model: @room do |form| %>
+
+            <div class="mb-3">
+                <strong><%= form.label :name, class: "form-label " %></strong>
+                <%= form.text_field :name, class: "form-control" %>
+            </div>
+
+            <%= form.submit class: "btn btn-success"%>
+        <% end %>
+    </div>
+  </div>
+
+</div>

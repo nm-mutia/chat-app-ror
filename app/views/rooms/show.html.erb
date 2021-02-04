@@ -1,28 +1,59 @@
-<h1><%= @room.name %></h1>
+<%= render "partials/navbar" %>
 
-<div data-channel-subscribe="room" data-room-id="<%= @room.id %>">
-    <% @room_messages.each do |room_message| %>
-        <div>
-            <p><%= room_message.message %></p>
-            <small><%= room_message.created_at %></small>
+<br>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3">
+      <div class="card">
+        <h3 class="card-header card-new">
+          <%= link_to "Rooms", rooms_path, class: "rooms-header" %>
+        </h3>
+        <%= render "partials/rooms" %>
+        <div class="card-footer">
+          Want to create a room?
+          <%= link_to "Create Room", new_room_path, class: "btn btn-outline-success" %>
         </div>
-  <% end %>
-</div>
+      </div>
+    </div>
 
-<div>
-    <%= form_with model: @room_message, remote: true do |form| %>
-        <div>
-            <%= form.text_field :message,
-                autocomplete: "off",
-                placeholder: "Type here ... "
-            %>
-            <%= form.submit "Send" %>
+    <div class="col-lg-9">
+      <div class="card">
+        <h2 class="card-header">
+          <%= @room.name %>
+        </h2>
+        <div class="card-body">
+          <div data-channel-subscribe="room" data-room-id="<%= @room.id %>">
+            <% @room_messages.each do |room_message| %>
+              <div>
+                <p><%= room_message.message %></p>
+                <small><%= room_message.created_at %></small>
+              </div>
+            <% end %>
+          </div>
+
+          <div>
+            <%= form_with model: @room_message, remote: true do |form| %>
+              <div>
+                <%= form.text_field :message,
+                    autocomplete: "off",
+                    placeholder: "Type here ... "
+                %>
+                <%= form.submit "Send" %>
+              </div>
+
+              <%= form.hidden_field :room_id %>
+            <% end %>
+          </div>
+
         </div>
+      </div>
 
-        <%= form.hidden_field :room_id %>
-    <% end %>
+
+
+    </div>
+  </div>
 </div>
-
 
 
 <div class="d-none" data-role="message-template">
