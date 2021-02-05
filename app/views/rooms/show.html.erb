@@ -18,6 +18,7 @@
       </div>
     </div>
 
+
     <div class="col-lg-9">
       <div class="card">
         <h2 class="card-header">
@@ -27,20 +28,22 @@
           <div class="chat" data-channel-subscribe="room" data-room-id="<%= @room.id %>">
             <% @room_messages.each do |room_message| %>
 
-              <div class="chat-message-container">
-                <div class="row no-gutters">
+              <% if room_message.message %>
+                <div class="chat-message-container">
+                  <div class="row no-gutters">
 
-                  <div class="col">
-                    <div class="message-content">
-                      <p class="text-bubble"><%= room_message.message %></p>
-                      <div class="text-right">
-                        <small><%= room_message.created_at %></small>
+                    <div class="col">
+                      <div class="message-content">
+                        <p class="text-bubble"><%= room_message.message %></p>
+                        <div class="text-right">
+                          <small><%= room_message.created_at %></small>
+                        </div>
                       </div>
                     </div>
-                  </div>
 
+                  </div>
                 </div>
-              </div>
+              <% end %>
 
             <% end %>
           </div>
