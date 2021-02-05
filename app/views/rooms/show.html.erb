@@ -29,14 +29,16 @@
 
               <div class="chat-message-container">
                 <div class="row no-gutters">
+
                   <div class="col">
                     <div class="message-content">
-                      <p class="mb-1"><%= room_message.message %></p>
+                      <p class="text-bubble"><%= room_message.message %></p>
                       <div class="text-right">
                         <small><%= room_message.created_at %></small>
                       </div>
                     </div>
                   </div>
+
                 </div>
               </div>
 
@@ -79,7 +81,7 @@
 
       <div class="col">
         <div class="message-content">
-          <p class="mb-1" data-role="message-text"></p>
+          <p class="text-bubble" data-role="message-text"></p>
           <div class="text-right">
             <small data-role="message-date"></small>
           </div>
