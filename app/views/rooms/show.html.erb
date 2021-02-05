@@ -4,6 +4,7 @@
 
 <div class="container">
   <div class="row">
+
     <div class="col-lg-3">
       <div class="card">
         <h3 class="card-header card-new">
@@ -23,35 +24,51 @@
           <%= @room.name %>
         </h2>
         <div class="card-body">
-          <div data-channel-subscribe="room" data-room-id="<%= @room.id %>">
+          <div class="chat" data-channel-subscribe="room" data-room-id="<%= @room.id %>">
             <% @room_messages.each do |room_message| %>
-              <div>
-                <p><%= room_message.message %></p>
-                <small><%= room_message.created_at %></small>
+
+              <div class="chat-message-container">
+                <div class="row no-gutters">
+                  <div class="col">
+                    <div class="message-content">
+                      <p class="mb-1"><%= room_message.message %></p>
+                      <div class="text-right">
+                        <small><%= room_message.created_at %></small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
+
             <% end %>
           </div>
 
           <div>
-            <%= form_with model: @room_message, remote: true do |form| %>
-              <div>
-                <%= form.text_field :message,
-                    autocomplete: "off",
-                    placeholder: "Type here ... "
+            <%= simple_form_for @room_message, remote: true do |form| %>
+              <div class="input-group">
+                <%= form.input :message,
+                    as: :string,
+                    wrapper: false,
+                    label: false,
+                    input_html: {
+                      autocomplete: "off",
+                      placeholder: "Type here ... ",
+                      class: "chat-input"
+                    }
                 %>
-                <%= form.submit "Send" %>
+                <div class="input-group-append">
+                  <%= form.submit "Send", class: 'btn btn-send chat-input'  %>
+                </div>
               </div>
 
-              <%= form.hidden_field :room_id %>
+              <%= form.input :room_id, as: :hidden %>
             <% end %>
           </div>
 
         </div>
       </div>
-
-
-
     </div>
+
   </div>
 </div>
 

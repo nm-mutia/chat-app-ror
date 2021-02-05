@@ -23,15 +23,54 @@
 // index - rooms list
 .room-item{
   color: #cdac81;
+  text-decoration: none;
 }
 .room-item:hover{
   color: #00303f;
 }
-
+.list-group-item{
+  display: inline-flex;
+}
 .rooms-header{
   color: #cae4db;
   text-decoration: none;
 }
 .rooms-header:hover{
   color: #cdac81;
+}
+
+// message
+.chat {
+  // border: 1px solid #f5f4f4;
+  // background: #f5f4f4;
+  height: 62vh;
+  border-radius: 5px 5px 0 0;
+  overflow-y: auto;
+  padding: 0 10px;
+}
+.chat-input {
+  border-top: 0 none;
+  border-radius: 0 0 5px 5px;
+}
+.btn-send{
+  background-color: #00303f;
+  color: #cae4db;
+}
+.btn-send:hover{
+  color: #cdac81;
+}
+.chat-message-container {
+  font-family: 'Ubuntu', sans-serif;
+  padding: 5px;
+  .message-content {
+    padding: 5px;
+    padding-left: 20px;
+    border: 1px solid #cdac81;
+    border-radius: 50px;
+    background: #cae4db;
+    color: #00303f;
+  }
+  & + .chat-message-container {
+    margin-top: 10px;
+  }
 }
